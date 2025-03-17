@@ -3,18 +3,21 @@ import React, { useState } from 'react';
 import MoodSelector from './MoodSelector';
 import QuoteDisplay from './QuoteDisplay';
 import BrowseQuotes from './BrowseQuotes';
-import AdminLogin from './AdminLogin';
-import AdminDashboard from './AdminDashboard';
+
+//import AdminLogin from './AdminLogin';
+//import AdminDashboard from './AdminDashboard';
 
 function App() {
   const [quoteData, setQuoteData] = useState(null);
   const [showAllQuotes, setShowAllQuotes] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 
   const handleSelectMood = async (mood) => {
     // When a mood is selected, hide the browse all view
     setShowAllQuotes(false);
     try {
-      const response = await fetch(`http://localhost:5000/quotes/random?mood=${encodeURIComponent(mood)}`);
+      const response = await fetch(`${API_URL}/quotes/random?mood=${encodeURIComponent(mood)}`);
       if (!response.ok) throw new Error('No quote found');
       const data = await response.json();
       setQuoteData(data);

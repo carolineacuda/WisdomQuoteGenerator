@@ -144,11 +144,11 @@ const MoodSelector = ({ onSelectMood }) => {
       border: '1px solid #ccc',
       borderRadius: '4px',
     }),
-    menu: (provided) => ({
-      ...provided,
-      backgroundColor: '#fff',
-      zIndex: 9999,            // Ensure it appears on top
-    }),
+    // menu: (provided) => ({
+    //   ...provided,
+    //   backgroundColor: '#fff',
+    //   zIndex: 9999,            // Ensure it appears on top
+    // }),
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? '#007bff' : '#fff',
